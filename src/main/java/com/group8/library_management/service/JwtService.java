@@ -8,6 +8,8 @@ import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
+import com.group8.library_management.entity.User;
+
 import java.security.Key;
 import java.util.Date;
 import java.util.HashMap;
@@ -35,7 +37,7 @@ public class JwtService {
 
     public String generateToken(UserDetails userDetails) {
         Map<String, Object> extraClaims = new HashMap<>();
-        if (userDetails instanceof User user) {
+         if (userDetails instanceof User user) {
             extraClaims.put("userId", user.getId());
         }
         return generateToken(extraClaims, userDetails);

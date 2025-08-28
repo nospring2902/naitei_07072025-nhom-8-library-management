@@ -49,4 +49,15 @@ public class FavoriteServiceImpl implements FavoriteService {
         favoriteRepository.save(favorite);
         return true;
     }
+
+    @Override
+    public boolean removeFavorite(Integer userId, Integer bookId) {
+        FavoriteId favoriteId = new FavoriteId(userId, bookId);
+        Favorite favorite = favoriteRepository.findById(favoriteId).orElse(null);
+        if (favorite != null) {
+            favoriteRepository.delete(favorite);
+            return true;
+        }
+        return false;
+    }
 }
