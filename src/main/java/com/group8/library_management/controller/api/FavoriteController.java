@@ -48,3 +48,4 @@ public class FavoriteController {
         return ResponseEntity.ok(BaseAPIRes.success(msg, null));
     }
 }
+

@@ -47,4 +47,6 @@ public interface BorrowRecordRepository extends JpaRepository<BorrowRecord, Inte
             Integer userId,
             List<BorrowRecordStatus> statuses
     );
+    
+    boolean existsByBorrowRequestDetail_BorrowRequest_User_UsernameAndBorrowRequestDetail_Copy_Book_Id(String username, Integer bookId);
 }
